@@ -3,3 +3,17 @@ scrapy crawl archivperlen
 
 aim: my own item pipeline
 serialize itmes to csv and use file system as storage backend
+
+/play/tv/archivperlen/video/brauerei-pferde-1991?urn=urn:srf:video:dd8ec2f9-a190-48c2-9732-51726a5af73a
+Brauerei-Pferde (1991).
+  Video
+  Archivperlen
+  gestern
+  22:00 Uhr,
+  10 Min
+Brauerei-Pferde (1991)
+Früher wurde das Hürlimann Bier noch mit dem Pferdewagen gebracht. Der Beruf des Bier-Fuhrmanns ist kein 08/15-Job. [«Treffpunkt» vom 4. April 1991]
+gestern, 00:00 Uhr
+Video, 10 Min
+
+Use the time from the tooltip field
