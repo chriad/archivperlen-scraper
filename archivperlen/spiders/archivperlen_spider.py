@@ -3,6 +3,7 @@ import scrapy
 
 class ArchivperlenSpider(scrapy.Spider):
     name = "archivperlen"
+    base_url = 'https://www.srf.ch'
 
     def start_requests(self):
         urls = [
@@ -13,8 +14,16 @@ class ArchivperlenSpider(scrapy.Spider):
 
     def parse(self, response):
         # page = response.url.split("/")[-2]
-        href = response.css("ul li:first-of-type article div:first-of-type a:first-of-type").attrib["href"]
+        item = response.css("ul li:first-of-type article div:first-of-type")
+        anchor = item.css("a")[1]
+        dl_url = anchor.attrib["href"]
+        context_desc = anchor.attrib["aria-label"]
+        vis_desc = item.css("a:nth-of-type(2)::text").get() # other way
+        desc_long = item.css("div div:first-of-type::text").get()
+        metadata = item.css("div div:nth-of-type(2)")
+        datep = metadata.css("time::text").get()
+        duration = metadata.css("span:nth-of-type(2)::text").get()
         # filename = f'quotes-{page}.html'
         # with open(filename, 'wb') as f:
         #     f.write(response.body)
-        self.log(f'Saved file {href}')
+        self.log(f'Saved file {dl_url}')
