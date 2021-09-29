@@ -1,0 +1,5 @@
+run with:
+scrapy crawl archivperlen
+
+aim: my own item pipeline
+serialize itmes to csv and use file system as storage backend
